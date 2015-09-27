@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Game1024.UControl.Blocks"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Border x:Name="MainArea" Background="#FFCCC0B2" Width="65" Height="95" CornerRadius="10" VerticalAlignment="Center">
+        <Label Height="50" FontFamily="Old English Text MT" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <TextBlock x:Name="txbNum"></TextBlock>
+        </Label>
+    </Border>
+</UserControl>
