@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
 
-namespace My1024
+namespace My2048
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

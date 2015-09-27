@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game1024", "Game1024\Game1024.csproj", "{0D44CF9D-0F88-4FAA-B378-F526D13C160F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My1024", "My1024\My1024.csproj", "{ED0FBAC3-9BB1-459E-B73C-3A87D29F0EB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My2048", "My1024\My2048.csproj", "{ED0FBAC3-9BB1-459E-B73C-3A87D29F0EB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

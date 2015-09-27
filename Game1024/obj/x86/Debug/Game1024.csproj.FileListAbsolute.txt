@@ -49,3 +49,18 @@ C:\Users\Kimi\Desktop\Game1024\Game1024\obj\x86\Debug\MainWindow.baml
 C:\Users\Kimi\Desktop\Game1024\Game1024\obj\x86\Debug\Game1024.g.resources
 C:\Users\Kimi\Desktop\Game1024\Game1024\obj\x86\Debug\Game1024.Properties.Resources.resources
 C:\Users\Kimi\Desktop\Game1024\Game1024\obj\x86\Debug\Game1024.csproj.GenerateResource.Cache
+D:\visual studio 2010\Projects\Game1024\Game1024\bin\Debug\Game1024.exe
+D:\visual studio 2010\Projects\Game1024\Game1024\bin\Debug\Game1024.pdb
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\UControl\Blocks.baml
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\MainWindow.g.cs
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\UControl\Blocks.g.cs
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\App.g.cs
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024_MarkupCompile.cache
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024_MarkupCompile.lref
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\MainWindow.baml
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024.g.resources
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024.Properties.Resources.resources
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024.csproj.GenerateResource.Cache
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024.exe
+D:\visual studio 2010\Projects\Game1024\Game1024\obj\x86\Debug\Game1024.pdb

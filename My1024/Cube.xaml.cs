@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace My1024
+namespace My2048
 {
     /// <summary>
     /// Cube.xaml 的交互逻辑
