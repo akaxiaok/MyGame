@@ -1,5 +1,0 @@
-D:\Users\CC\Desktop\Game1024\Property\bin\Debug\Property.dll
-D:\Users\CC\Desktop\Game1024\Property\bin\Debug\Property.pdb
-D:\Users\CC\Desktop\Game1024\Property\obj\Debug\ResolveAssemblyReference.cache
-D:\Users\CC\Desktop\Game1024\Property\obj\Debug\Property.dll
-D:\Users\CC\Desktop\Game1024\Property\obj\Debug\Property.pdb
