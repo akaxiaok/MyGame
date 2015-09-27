@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
+using System.IO;
 
 namespace My2048
 {
@@ -30,6 +31,8 @@ namespace My2048
         private int _score = 0;
 
         private int[] prev = new int[17];
+
+        private int[] records = new int[10];
 
         public MainWindow()
         {
@@ -153,6 +156,7 @@ namespace My2048
             {
                 if (!canMove())
                 {
+                    setRecord();
                     MessageBox.Show("Game Over!", "Info");
                 }
             }
@@ -347,6 +351,89 @@ namespace My2048
                 default:
                     break;
             }
+        }
+
+
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            string[] save = new string[17];
+            for (int i = 0; i < 16; i++)
+            {
+                save[i] = cubes[i].Value.ToString();
+            }
+            save[16] = _score.ToString();
+            File.WriteAllLines(@".\sava.dat", save, Encoding.UTF8);
+            MessageBox.Show("存储成功！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void setRecord()
+        {
+            loadRecord();
+            List<int> list = records.ToList();
+            if (_score > list.Min())
+            {
+                list.Remove(list.Min());
+                list.Add(_score);
+                list.Sort();
+                list.Reverse();
+                records = list.ToArray();
+                saveRecord();
+            }
+        }
+        private void saveRecord()
+        {
+            StreamWriter stream = new StreamWriter(@"./record.dat", false, Encoding.UTF8);
+            using (stream)
+            {
+                foreach (int r in records)
+                {
+                    stream.WriteLine(r.ToString());
+                }
+            }
+        }
+        private void loadRecord()
+        {
+
+            if (File.Exists(@"./record.dat"))
+            {
+                StreamReader stream = new StreamReader(@"./record.dat", Encoding.UTF8);
+                using (stream)
+                {
+                    for (int i = 0; i < records.Length; i++)
+                    {
+                        records[i] = int.Parse(stream.ReadLine());
+                    }
+                }
+
+            }
+        }
+        private void record_Click(object sender, RoutedEventArgs e)
+        {
+            loadRecord();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < records.Length; i++)
+            {
+                sb.Append("第" + (i + 1).ToString() + "名:" + records[i] + "\n");
+            }
+            MessageBox.Show(sb.ToString(), "纪录", MessageBoxButton.OK);
+        }
+
+        private void load_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(@".\sava.dat"))
+            {
+                string[] save = File.ReadAllLines(@".\sava.dat", Encoding.UTF8);
+
+                for (int i = 0; i < 16; i++)
+                {
+                    cubes[i].Value = int.Parse(save[i]);
+                }
+                _score = int.Parse(save[16]);
+                tScore.Text = save[16];
+            }
+
+
         }
     }
 

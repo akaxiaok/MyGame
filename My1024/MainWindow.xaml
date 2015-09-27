@@ -4,12 +4,21 @@
         xmlns:B="clr-namespace:My2048"
         Title="My2048"  Closing="Window_Closing" WindowStartupLocation="CenterScreen" Width="350"
         Height="535" ResizeMode="NoResize" PreviewKeyUp="Window_PreviewKeyUp">
+    
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" VerticalAlignment="Center" CornerRadius="10" Background="#FFBBADA0" Width="320"
+        <Menu Grid.Row="0" Height="20" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top"  Width="350" Focusable="False">
+            <MenuItem Header="功能"  >
+                <MenuItem Header="存档" Name="save" Click="save_Click"></MenuItem>
+                <MenuItem Header="读取" Name="load" Click="load_Click"></MenuItem>
+                <MenuItem Header="排行榜" Name="record" Click="record_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border Grid.Row="1" VerticalAlignment="Center" CornerRadius="10" Background="#FFBBADA0" Width="320"
                 Height="440" 
                 >
             <Grid x:Name ="MainGrid">
@@ -43,10 +52,10 @@
                 <B:Cube Grid.Column="3" Grid.Row="3" x:Name="b15" ></B:Cube>
             </Grid>
         </Border>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-            <Button Name="btnPlay" Width="80" Height ="24" Click="btnPlay_Click">Play</Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Button Name="btnPlay" Width="80" Height ="24" Click="btnPlay_Click" Focusable="False">Play</Button>
             <TextBlock Name="tScore" Width="100" Margin="50,0,0,0" FontSize="25">0</TextBlock>
-            <Button Name="butBack" Width="80" Height="24" Click="butBack_Click">back</Button>
+            <Button Name="butBack" Width="80" Height="24" Click="butBack_Click" Focusable="False">back</Button>
         </StackPanel>
     </Grid>
 </Window>
