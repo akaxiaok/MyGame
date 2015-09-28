@@ -1,0 +1,11 @@
+D:\visual studio 2010\Projects\Game1024\White\bin\Debug\White.exe
+D:\visual studio 2010\Projects\Game1024\White\bin\Debug\White.pdb
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\MainWindow.baml
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\MainWindow.g.cs
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\App.g.cs
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White_MarkupCompile.cache
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White.g.resources
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White.Properties.Resources.resources
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White.csproj.GenerateResource.Cache
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White.exe
+D:\visual studio 2010\Projects\Game1024\White\obj\x86\Debug\White.pdb
