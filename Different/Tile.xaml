@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Loaded="UserControl_Loaded" Background="White"   Margin="1">
     <Button x:Name="MainArea" Width="80" Height="110" Click="MainArea_Click" Focusable="False">
-        <Label Height="50" FontFamily="Old English Text MT" FontSize="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+        <Label Height="50" FontFamily="SimSun" FontSize="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <TextBlock x:Name="TxbNum"></TextBlock>
         </Label>
     </Button>

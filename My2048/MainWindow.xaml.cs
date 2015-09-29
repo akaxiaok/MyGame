@@ -21,19 +21,22 @@ namespace My2048
     /// </summary>
 
 
-    //http://www.3366.com/flash/106550.shtml
+    //http://www.3366.com/flash/106550.shtml 在线版2048
 
     public partial class MainWindow : Window
     {
-        private Tile[] tiles = new Tile[16];
+        private Tile[] _tiles = new Tile[16];
         enum MoveDict { Up, Down, Left, Right };
 
         private int _score = 0;
 
-        private int[] prev = new int[17];
+        private int[] _prev = new int[17];//存储上一步
 
-        private int[] records = new int[10];
+        private int[] _records = new int[10];//存储记录
 
+        /// <summary>
+        ///初始化窗口，绑定方块控件 
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -53,28 +56,25 @@ namespace My2048
             //tiles[13] = b13;
             //tiles[14] = b14;
             //tiles[15] = b15;
-             
 
-            
-            
-            for (int i = 0; i < tiles.Length; i++)
+            for (int i = 0; i < _tiles.Length; i++)
             {
-                tiles[i] = this.FindName("b" + i.ToString()) as Tile;
+                _tiles[i] = this.FindName("b" + i.ToString()) as Tile;
             }
 
-            startGame();
+            StartGame();
         }
         /// <summary>
-        /// 
+        /// 开始游戏
         /// </summary>
-        private void startGame()
+        private void StartGame()
         {
             _score = 0;
             tScore.Text = _score.ToString();
             Random r = new Random();
 
-            int c1 = r.Next(1, 5);
-            int c2 = c1;
+            int c1 = r.Next(0, 16);
+            int c2;
 
             do
             {
@@ -83,55 +83,47 @@ namespace My2048
 
             for (int i = 0; i < 16; i++)
             {
-                tiles[i].Value = 0;
+                _tiles[i].Value = 0;//清空
             }
 
+            //随机设置两个方块
+            _tiles[c1].Value = r.Next(0, 100) < 90 ? 2 : 4;
+            _tiles[c2].Value = r.Next(0, 100) < 90 ? 2 : 4;
 
-
-            switch (c1)
-            {
-                case 1:
-                    tiles[0].Value = r.Next(0, 100) < 90 ? 2 : 4;
-                    break;
-                case 2:
-                    tiles[3].Value = r.Next(0, 100) < 90 ? 2 : 4;
-                    break;
-                case 3:
-                    tiles[12].Value = r.Next(0, 100) < 90 ? 2 : 4;
-                    break;
-                case 4:
-                    tiles[15].Value = r.Next(0, 100) < 90 ? 2 : 4;
-                    break;
-                default:
-                    break;
-            }
-            tiles[c2].Value = r.Next(0, 100) < 90 ? 2 : 4;
-            savePrevValue();
+            SavePrevValue();
         }
 
-
-        private void savePrevValue()
+        /// <summary>
+        /// 存储上一步
+        /// </summary>
+        private void SavePrevValue()
         {
             for (int i = 0; i < 16; i++)
             {
-                prev[i] = tiles[i].Value;
+                _prev[i] = _tiles[i].Value;
             }
-            prev[16] = _score;
+            _prev[16] = _score;
         }
 
-        private void loadPrevValue()
+        /// <summary>
+        /// 加载上一步
+        /// </summary>
+        private void LoadPrevValue()
         {
             for (int i = 0; i < 16; i++)
             {
-                tiles[i].Value = prev[i];
+                _tiles[i].Value = _prev[i];
             }
-            _score = prev[16];
+            _score = _prev[16];
             tScore.Text = _score.ToString();
         }
-
-        private void oneMove(MoveDict dict)
+        /// <summary>
+        /// 移动一步
+        /// </summary>
+        /// <param name="dict">移动方向</param>
+        private void OneMove(MoveDict dict)
         {
-            savePrevValue();
+            SavePrevValue();
             //bool needGetNext1 = false;
             //bool needGetNext2 = false;
             //bool needGetNext3 = false;
@@ -140,16 +132,16 @@ namespace My2048
             switch (dict)
             {
                 case MoveDict.Up:
-                    _score += moveLine(b12, b8, b4, b0) + moveLine(b13, b9, b5, b1) + moveLine(b14, b10, b6, b2) + moveLine(b15, b11, b7, b3);
+                    _score += MoveLine(b12, b8, b4, b0) + MoveLine(b13, b9, b5, b1) + MoveLine(b14, b10, b6, b2) + MoveLine(b15, b11, b7, b3);
                     break;
                 case MoveDict.Down:
-                    _score += moveLine(b0, b4, b8, b12) + moveLine(b1, b5, b9, b13) + moveLine(b2, b6, b10, b14) + moveLine(b3, b7, b11, b15);
+                    _score += MoveLine(b0, b4, b8, b12) + MoveLine(b1, b5, b9, b13) + MoveLine(b2, b6, b10, b14) + MoveLine(b3, b7, b11, b15);
                     break;
                 case MoveDict.Right:
-                    _score += moveLine(b0, b1, b2, b3) + moveLine(b4, b5, b6, b7) + moveLine(b8, b9, b10, b11) + moveLine(b12, b13, b14, b15);
+                    _score += MoveLine(b0, b1, b2, b3) + MoveLine(b4, b5, b6, b7) + MoveLine(b8, b9, b10, b11) + MoveLine(b12, b13, b14, b15);
                     break;
                 case MoveDict.Left:
-                    _score += moveLine(b3, b2, b1, b0) + moveLine(b7, b6, b5, b4) + moveLine(b11, b10, b9, b8) + moveLine(b15, b14, b13, b12);
+                    _score += MoveLine(b3, b2, b1, b0) + MoveLine(b7, b6, b5, b4) + MoveLine(b11, b10, b9, b8) + MoveLine(b15, b14, b13, b12);
                     break;
                 default:
                     break;
@@ -157,34 +149,45 @@ namespace My2048
 
             tScore.Text = _score.ToString();
             //int n = cubes.Count(isZero);
-            int n = tiles.Count(cube => { return cube.Value == 0; });//计算为0的cube数
-            //if (needGetNext1 || needGetNext2 || needGetNext3 || needGetNext4 || n < 5)
+            int n = _tiles.Count(cube => { return cube.Value == 0; });//计算为0的方块数
+
+            //还有空方块则新建一个方块
             if (n > 0)
             {
-                getNextCube();
+                GetNextCube();
             }
             else
             {
-                if (!canMove())
+                //判断是否还能移动
+                if (!CanMove())
                 {
-                    setRecord();
+                    SetRecord();
                     MessageBox.Show("Game Over!", "Info");
                 }
             }
         }
-
-        private int moveLine(Tile t1, Tile t2, Tile t3, Tile t4)
+        /// <summary>
+        /// 移动一行(列）
+        /// </summary>
+        /// <param name="t1"></param>
+        /// <param name="t2"></param>
+        /// <param name="t3"></param>
+        /// <param name="t4"></param>
+        /// <returns></returns>
+        private int MoveLine(Tile t1, Tile t2, Tile t3, Tile t4)
         {
             //canGetNext = false;
-            int score = 0;
-            if (t1.Value == 0 && t2.Value == 0 && t3.Value == 0 && t4.Value == 0)//该行全为0直接返回
-                return 0;
+            //int score = 0;
+            //if (t1.Value == 0 && t2.Value == 0 && t3.Value == 0 && t4.Value == 0)//该行全为0直接返回
+            //    return 0;
             //if ((c4.Value == 0 && (c1.Value != 0 || c2.Value != 0 || c3.Value != 0)) ||
             //(c3.Value == 0 && (c1.Value != 0 || c2.Value != 0)) ||
             //(c2.Value == 0 && c1.Value != 0))
             //    canGetNext = true;
-            Tile[] t = { t1, t2, t3, t4 };
-
+            int score = 0;
+            Tile[] row = { t1, t2, t3, t4 };
+            if (row.Count(t => t.Value == 0) == row.Length)//该行全为0直接返回
+                return 0;
             //ArrayList iCubes = new ArrayList();
             //for (int i = 0; i < cubes.Length; i++)
             //    if (cubes[i].IValue != 0)
@@ -202,68 +205,68 @@ namespace My2048
             //    c[c.Length - 1 - i].Value = iCube[iCube.Length - 1 - i].Value;//将非0的cube放到队尾
             //    //c[i].Value = iCube[iCube.Count()-1-i];
             //}
-            ArrayList iTiles = new ArrayList();
-            foreach (Tile tile in t)
+            ArrayList tilesNotZero = new ArrayList();//存放当前行非0块
+            foreach (Tile tile in row)
             {
                 if (tile.Value != 0)
                 {
-                    iTiles.Add(tile.Value);
+                    tilesNotZero.Add(tile.Value);
                 }
             }
 
-            for (int i = 0; i < t.Length; i++)
+            for (int i = 0; i < row.Length; i++)
             {
-                if (iTiles.Count - 1 - i >= 0)
+                if (tilesNotZero.Count - 1 - i >= 0)
                 {
-                    t[t.Length - 1 - i].Value = (int)iTiles[iTiles.Count - 1 - i];//将非0的cube放到队尾
+                    row[row.Length - 1 - i].Value = (int)tilesNotZero[tilesNotZero.Count - 1 - i];//将非0的块放到队尾
                 }
                 else
                 {
-                    t[t.Length - 1 - i].Value = 0;
+                    row[row.Length - 1 - i].Value = 0;//其余补0
                 }
                 //c[i].Value = iCube[iCube.Count()-1-i];
             }
 
-            if (t[2].Value != 0)//如果倒数第二个为0，说明该行只有一个数直接返回
+            if (row[2].Value != 0)//如果倒数第二个为0，说明该行只有一个数直接返回
             {
-                if (t[3].Value == t[2].Value)
+                if (row[3].Value == row[2].Value)
                 {
-                    score += 2 * t[3].Value;
-                    t[3].Value = 2 * t[3].Value;
+                    score += 2 * row[3].Value;
+                    row[3].Value = 2 * row[3].Value;
                     //canGetNext = true;
-                    if (t[1].Value == t[0].Value)
+                    if (row[1].Value == row[0].Value)
                     {
-                        score += 2 * t[1].Value;
-                        t[2].Value = 2 * t[1].Value;
+                        score += 2 * row[1].Value;
+                        row[2].Value = 2 * row[1].Value;
                         //if (c[1].Value > 0) canGetNext = true;//???
-                        t[1].Value = 0;
-                        t[0].Value = 0;
+                        row[1].Value = 0;
+                        row[0].Value = 0;
                     }
                     else
                     {
-                        t[2].Value = t[1].Value;
-                        t[1].Value = t[0].Value;
-                        t[0].Value = 0;
+                        row[2].Value = row[1].Value;
+                        row[1].Value = row[0].Value;
+                        row[0].Value = 0;
                     }
                 }
                 else
                 {
-                    if (t[2].Value == t[1].Value)
+                    if (row[2].Value == row[1].Value)
                     {
-                        score += 2 * t[2].Value;
-                        t[2].Value = 2 * t[2].Value;
+                        score += 2 * row[2].Value;
+                        row[2].Value = 2 * row[2].Value;
                         //if (c[1].Value > 0) canGetNext = true;
-                        t[1].Value = t[0].Value;
-                        t[0].Value = 0;
+                        row[1].Value = row[0].Value;
+                        row[0].Value = 0;
                     }
                     else
                     {
-                        if (t[1].Value == t[0].Value)
+                        if (row[1].Value == row[0].Value)
                         {
-                            score += 2 * t[1].Value;
-                            t[1].Value = 2 * t[1].Value;
+                            score += 2 * row[1].Value;
+                            row[1].Value = 2 * row[1].Value;
                             //if (c[0].Value > 0) canGetNext = true;
-                            t[0].Value = 0;
+                            row[0].Value = 0;
                         }
                     }
                 }
@@ -271,28 +274,40 @@ namespace My2048
             return score;
         }
 
-        private void getNextCube()
+
+        /// <summary>
+        /// 获取一个新的色块
+        /// </summary>
+        private void GetNextCube()
         {
-            ArrayList iTiles = new ArrayList();
+            ArrayList iTiles = new ArrayList();//存放数组为0的块的位置
 
             for (int i = 0; i < 16; i++)
             {
-                if (tiles[i].Value == 0)
+                if (_tiles[i].Value == 0)
                 {
                     iTiles.Add(i);
                 }
             }
+           
+
             if (iTiles.Count > 0)
             {
                 Random r = new Random();
-                tiles[(int)iTiles[r.Next(1, iTiles.Count) - 1]].Value = (r.Next(1, 100) < 90 ? 2 : 4);
+                _tiles[(int)iTiles[r.Next(1, iTiles.Count) - 1]].Value = (r.Next(1, 100) < 90 ? 2 : 4);
             }
         }
-        private bool canMove()
+
+
+        /// <summary>
+        /// 判断能否继续移动
+        /// </summary>
+        /// <returns></returns>
+        private bool CanMove()
         {
-            for (int i = 0; i < tiles.Length; i++)
+            for (int i = 0; i < _tiles.Length; i++)
             {
-                if (tiles[i].Value == 0)
+                if (_tiles[i].Value == 0)
                 {
                     return true;
                 }
@@ -325,13 +340,16 @@ namespace My2048
         {
             if (MessageBox.Show("重开一局吗？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
-                startGame();
+                StartGame();
             }
         }
 
+
+
+        
         private void butBack_Click(object sender, RoutedEventArgs e)
         {
-            loadPrevValue();
+            LoadPrevValue();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -348,16 +366,16 @@ namespace My2048
             {
 
                 case Key.Up:
-                    oneMove(MoveDict.Up);
+                    OneMove(MoveDict.Up);
                     break;
                 case Key.Down:
-                    oneMove(MoveDict.Down);
+                    OneMove(MoveDict.Down);
                     break;
                 case Key.Left:
-                    oneMove(MoveDict.Left);
+                    OneMove(MoveDict.Left);
                     break;
                 case Key.Right:
-                    oneMove(MoveDict.Right);
+                    OneMove(MoveDict.Right);
                     break;
                 default:
                     break;
@@ -368,42 +386,54 @@ namespace My2048
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            string[] save = new string[17];
+            string[] saves = new string[17];
             for (int i = 0; i < 16; i++)
             {
-                save[i] = tiles[i].Value.ToString();
+                saves[i] = _tiles[i].Value.ToString();
             }
-            save[16] = _score.ToString();
-            File.WriteAllLines(@".\sava.dat", save, Encoding.UTF8);
+            saves[16] = _score.ToString();
+            File.WriteAllLines(@".\sava.dat", saves, Encoding.UTF8);
             MessageBox.Show("存储成功！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void setRecord()
+        
+        /// <summary>
+        /// 当前分数与纪录比较
+        /// </summary>
+        private void SetRecord()
         {
-            loadRecord();
-            List<int> list = records.ToList();
+            LoadRecord();
+            List<int> list = _records.ToList();
             if (_score > list.Min())
             {
                 list.Remove(list.Min());
                 list.Add(_score);
                 list.Sort();
                 list.Reverse();
-                records = list.ToArray();
-                saveRecord();
+                _records = list.ToArray();
+                SaveRecord();
             }
         }
-        private void saveRecord()
+
+        /// <summary>
+        /// 保存纪录
+        /// </summary>
+        private void SaveRecord()
         {
             StreamWriter stream = new StreamWriter(@"./record.dat", false, Encoding.UTF8);
             using (stream)
             {
-                foreach (int r in records)
+                foreach (int r in _records)
                 {
                     stream.WriteLine(r.ToString());
                 }
             }
         }
-        private void loadRecord()
+
+        /// <summary>
+        /// 加载纪录
+        /// </summary>
+        private void LoadRecord()
         {
 
             if (File.Exists(@"./record.dat"))
@@ -411,21 +441,22 @@ namespace My2048
                 StreamReader stream = new StreamReader(@"./record.dat", Encoding.UTF8);
                 using (stream)
                 {
-                    for (int i = 0; i < records.Length; i++)
+                    for (int i = 0; i < _records.Length; i++)
                     {
-                        records[i] = int.Parse(stream.ReadLine());
+                        _records[i] = int.Parse(stream.ReadLine());
                     }
                 }
 
             }
         }
+        
         private void record_Click(object sender, RoutedEventArgs e)
         {
-            loadRecord();
+            LoadRecord();
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < records.Length; i++)
+            for (int i = 0; i < _records.Length; i++)
             {
-                sb.Append("第" + (i + 1).ToString() + "名:" + records[i] + "\n");
+                sb.Append("第" + (i + 1).ToString() + "名:" + _records[i] + "\n");
             }
             MessageBox.Show(sb.ToString(), "纪录", MessageBoxButton.OK);
         }
@@ -434,14 +465,14 @@ namespace My2048
         {
             if (File.Exists(@".\sava.dat"))
             {
-                string[] save = File.ReadAllLines(@".\sava.dat", Encoding.UTF8);
+                string[] saves = File.ReadAllLines(@".\sava.dat", Encoding.UTF8);
 
                 for (int i = 0; i < 16; i++)
                 {
-                    tiles[i].Value = int.Parse(save[i]);
+                    _tiles[i].Value = int.Parse(saves[i]);
                 }
-                _score = int.Parse(save[16]);
-                tScore.Text = save[16];
+                _score = int.Parse(saves[16]);
+                tScore.Text = saves[16];
             }
 
 

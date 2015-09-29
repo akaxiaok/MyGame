@@ -26,6 +26,9 @@ namespace My2048
 
         private int _value=0;
 
+        /// <summary>
+        /// 设置显示数字
+        /// </summary>
         public int Value
         {
             get { return _value; }
@@ -41,29 +44,32 @@ namespace My2048
             }
 
         }
+        /// <summary>
+        ///根据数字设置颜色 
+        /// </summary>
         private void CubePaint()
         {
             switch (_value)
             {
                 case 2:
-                    setColor(238, 228, 218);
+                    SetColor(238, 228, 218);
                     txbNum.Foreground = new SolidColorBrush(Colors.Black);
                     break;
                 case 4:
-                    setColor(236, 224, 200);
+                    SetColor(236, 224, 200);
                     txbNum.Foreground = new SolidColorBrush(Colors.Black);
                     break;
                 case 8:
-                    setColor(242, 177, 121);
+                    SetColor(242, 177, 121);
                     break;
                 case 16:
-                    setColor(245, 149, 99);
+                    SetColor(245, 149, 99);
                     break;
                 case 32:
-                    setColor(243, 124, 94);
+                    SetColor(243, 124, 94);
                     break;
                 case 64:
-                    setColor(246, 93, 59);
+                    SetColor(246, 93, 59);
                     break;
                 case 128:
                 case 256:
@@ -71,14 +77,14 @@ namespace My2048
                 case 1024:
                 case 2048:
                 case 4096:
-                    setColor(237, 204, 97);
+                    SetColor(237, 204, 97);
                     break;
                 default:
-                    setColor(204, 192, 178);
+                    SetColor(204, 192, 178);
                     break;
             }
         }
-        private void setColor(byte r, byte g, byte b)
+        private void SetColor(byte r, byte g, byte b)
         {
             MainArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
             txbNum.Foreground = new SolidColorBrush(Colors.White);
