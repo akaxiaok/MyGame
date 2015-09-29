@@ -12,9 +12,9 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="20" HorizontalAlignment="Left" Name="Menu" VerticalAlignment="Top"  Width="350" Focusable="False">
             <MenuItem Header="功能"  >
-                <MenuItem Header="存档" Name="Save"  ></MenuItem>
+                <!--<MenuItem Header="存档" Name="Save"  ></MenuItem>
                 <MenuItem Header="读取" Name="Load"  ></MenuItem>
-                <MenuItem Header="排行榜" Name="Record"  ></MenuItem>
+                <MenuItem Header="排行榜" Name="Record"  ></MenuItem>-->
             </MenuItem>
         </Menu>
         <Border Grid.Row="1" VerticalAlignment="Center" CornerRadius="10" Background="#FFBBADA0" Width="320"

@@ -9,22 +9,13 @@ namespace Different
     /// Tile.xaml 的交互逻辑
     /// </summary>
     public partial class Tile : UserControl
-    {   
-         
-        public Color Color { get; private set; }
-
-        
+    {
 
         public Tile()
         {
             InitializeComponent();
         }
 
-        public void SetColor(Color color)
-        {
-            MainArea.Background = new SolidColorBrush(color);
-            Color = color;
-        }
 
         public void SetText(string text)
         {
@@ -43,11 +34,17 @@ namespace Different
 
         private void MainArea_Click(object sender, RoutedEventArgs e)
         {
-            var win = GetParentObject<MainWindow>(this, "MainWin");
-            win.OneClick(this);
+            var win = GetParentObject<MainWindow>(this, "MainWin");//通过name找父控件
+            win.OneClick(this);//主窗口MaiWin处理一次点击事件
         }
 
-
+        /// <summary>
+        /// 通过name找父控件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">源控件</param>
+        /// <param name="name">父控件的name</param>
+        /// <returns></returns>
         private T GetParentObject<T>(DependencyObject obj, string name) where T : FrameworkElement
         {
             DependencyObject parent = VisualTreeHelper.GetParent(obj);
