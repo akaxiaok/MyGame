@@ -1,10 +1,10 @@
 Thie is a repository of my game demos 
-ÎÒµÄĞ¡ÓÎÏ·ÑİÊ¾³ÌĞò
+æˆ‘çš„å°æ¸¸æˆæ¼”ç¤ºç¨‹åº
 Game1024 is a demo I found in http://download.csdn.net/detail/eolu19900110/7647261
-Game1024ÊÇÎÒÔÚhttp://download.csdn.net/detail/eolu19900110/7647261ÕÒµ½µÄÊ¾Àı³ÌĞò
+Game1024æ˜¯æˆ‘åœ¨http://download.csdn.net/detail/eolu19900110/7647261æ‰¾åˆ°çš„ç¤ºä¾‹ç¨‹åº
 My2048 is clone of Game1024
-My2048ÊÇÎÒ°ÑGame1024µÄ´úÂë´òÁËÒ»±é£¬Ò²×öÁËÒ»Ğ©ĞŞ¸ÄÌí¼Ó´æµµºÍÅÅĞĞ°ñ¹¦ÄÜ¡£
+My2048æ˜¯æˆ‘æŠŠGame1024çš„ä»£ç æ‰“äº†ä¸€éï¼Œä¹Ÿåšäº†ä¸€äº›ä¿®æ”¹æ·»åŠ å­˜æ¡£å’Œæ’è¡Œæ¦œåŠŸèƒ½ã€‚
 White is Don't Touch the White Tile
-WhiteÊÇ¸ö¼òµ¥µÄ±ğ²È°×¿é
-Different is a game using chinese but can be palyed by thoes who do't konw chinese...
-DifferentÊÇ¸öÕÒ²»Í¬ÓÎÏ·
+Whiteæ˜¯ä¸ªç®€å•çš„åˆ«è¸©ç™½å—
+Different is a game using chinese but can be palyed by thoes who don't konw chinese...
+Differentæ˜¯ä¸ªæ‰¾ä¸åŒæ¸¸æˆ
