@@ -37,25 +37,36 @@ namespace My2048
         public MainWindow()
         {
             InitializeComponent();
-            tiles[0] = b0;
-            tiles[1] = b1;
-            tiles[2] = b2;
-            tiles[3] = b3;
-            tiles[4] = b4;
-            tiles[5] = b5;
-            tiles[6] = b6;
-            tiles[7] = b7;
-            tiles[8] = b8;
-            tiles[9] = b9;
-            tiles[10] = b10;
-            tiles[11] = b11;
-            tiles[12] = b12;
-            tiles[13] = b13;
-            tiles[14] = b14;
-            tiles[15] = b15;
+            //tiles[0] = b0;
+            //tiles[1] = b1;
+            //tiles[2] = b2;
+            //tiles[3] = b3;
+            //tiles[4] = b4;
+            //tiles[5] = b5;
+            //tiles[6] = b6;
+            //tiles[7] = b7;
+            //tiles[8] = b8;
+            //tiles[9] = b9;
+            //tiles[10] = b10;
+            //tiles[11] = b11;
+            //tiles[12] = b12;
+            //tiles[13] = b13;
+            //tiles[14] = b14;
+            //tiles[15] = b15;
+             
+
+            
+            
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                tiles[i] = this.FindName("b" + i.ToString()) as Tile;
+            }
+
             startGame();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void startGame()
         {
             _score = 0;

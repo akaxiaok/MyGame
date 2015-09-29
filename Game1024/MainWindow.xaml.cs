@@ -27,6 +27,7 @@ namespace Game1024
         /// 上下左右移动
         /// </summary>
         enum MoveDict { Up, Down, Left, Right };
+
         /// <summary>
         /// 分数
         /// </summary>

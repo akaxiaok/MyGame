@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My2048", "My2048\My2048.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "White", "White\White.csproj", "{FEECDDD7-7A9C-495E-996F-818E5DE93080}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Different", "Different\Different.csproj", "{45C58994-1DD1-4F3A-B2F1-290815C367A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{FEECDDD7-7A9C-495E-996F-818E5DE93080}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FEECDDD7-7A9C-495E-996F-818E5DE93080}.Release|x86.ActiveCfg = Release|x86
 		{FEECDDD7-7A9C-495E-996F-818E5DE93080}.Release|x86.Build.0 = Release|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Debug|x86.ActiveCfg = Debug|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Debug|x86.Build.0 = Debug|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Release|Any CPU.ActiveCfg = Release|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Release|Mixed Platforms.Build.0 = Release|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Release|x86.ActiveCfg = Release|x86
+		{45C58994-1DD1-4F3A-B2F1-290815C367A5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

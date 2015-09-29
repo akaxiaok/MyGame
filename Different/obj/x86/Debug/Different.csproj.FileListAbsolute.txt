@@ -1,0 +1,15 @@
+D:\visual studio 2010\Projects\Game1024\Different\bin\Debug\Different.exe
+D:\visual studio 2010\Projects\Game1024\Different\bin\Debug\Different.pdb
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Tile.baml
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\MainWindow.g.cs
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Tile.g.cs
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\App.g.cs
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different_MarkupCompile.cache
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different_MarkupCompile.lref
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\MainWindow.baml
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different.g.resources
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different.Properties.Resources.resources
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different.csproj.GenerateResource.Cache
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different.exe
+D:\visual studio 2010\Projects\Game1024\Different\obj\x86\Debug\Different.pdb
