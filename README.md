@@ -2,7 +2,7 @@ Thie is a repository of my game demos
 
 我的小游戏演示程序
 
-Game1024 is a demo I found in http://download.csdn.net/detail/eolu19900110/7647261
+Game1024 is a demo I found in http://download.csdn.net/detail/eolu19900110/7647261 ,not a game download in 1024
 
 Game1024是我在http://download.csdn.net/detail/eolu19900110/7647261 找到的示例程序
 
