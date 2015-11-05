@@ -40,26 +40,10 @@ namespace My2048
         public MainWindow()
         {
             InitializeComponent();
-            //tiles[0] = b0;
-            //tiles[1] = b1;
-            //tiles[2] = b2;
-            //tiles[3] = b3;
-            //tiles[4] = b4;
-            //tiles[5] = b5;
-            //tiles[6] = b6;
-            //tiles[7] = b7;
-            //tiles[8] = b8;
-            //tiles[9] = b9;
-            //tiles[10] = b10;
-            //tiles[11] = b11;
-            //tiles[12] = b12;
-            //tiles[13] = b13;
-            //tiles[14] = b14;
-            //tiles[15] = b15;
-
+           
             for (int i = 0; i < _tiles.Length; i++)
             {
-                _tiles[i] = this.FindName("b" + i.ToString()) as Tile;
+                _tiles[i] = this.FindName("B" + i.ToString()) as Tile;
             }
 
             StartGame();
@@ -70,7 +54,7 @@ namespace My2048
         private void StartGame()
         {
             _score = 0;
-            tScore.Text = _score.ToString();
+            TScore.Text = _score.ToString();
             Random r = new Random();
 
             int c1 = r.Next(0, 16);
@@ -115,7 +99,7 @@ namespace My2048
                 _tiles[i].Value = _prev[i];
             }
             _score = _prev[16];
-            tScore.Text = _score.ToString();
+            TScore.Text = _score.ToString();
         }
         /// <summary>
         /// 移动一步
@@ -132,22 +116,22 @@ namespace My2048
             switch (dict)
             {
                 case MoveDict.Up:
-                    _score += MoveLine(b12, b8, b4, b0) + MoveLine(b13, b9, b5, b1) + MoveLine(b14, b10, b6, b2) + MoveLine(b15, b11, b7, b3);
+                    _score += MoveLine(B12, B8, B4, B0) + MoveLine(B13, B9, B5, B1) + MoveLine(B14, B10, B6, B2) + MoveLine(B15, B11, B7, B3);
                     break;
                 case MoveDict.Down:
-                    _score += MoveLine(b0, b4, b8, b12) + MoveLine(b1, b5, b9, b13) + MoveLine(b2, b6, b10, b14) + MoveLine(b3, b7, b11, b15);
+                    _score += MoveLine(B0, B4, B8, B12) + MoveLine(B1, B5, B9, B13) + MoveLine(B2, B6, B10, B14) + MoveLine(B3, B7, B11, B15);
                     break;
                 case MoveDict.Right:
-                    _score += MoveLine(b0, b1, b2, b3) + MoveLine(b4, b5, b6, b7) + MoveLine(b8, b9, b10, b11) + MoveLine(b12, b13, b14, b15);
+                    _score += MoveLine(B0, B1, B2, B3) + MoveLine(B4, B5, B6, B7) + MoveLine(B8, B9, B10, B11) + MoveLine(B12, B13, B14, B15);
                     break;
                 case MoveDict.Left:
-                    _score += MoveLine(b3, b2, b1, b0) + MoveLine(b7, b6, b5, b4) + MoveLine(b11, b10, b9, b8) + MoveLine(b15, b14, b13, b12);
+                    _score += MoveLine(B3, B2, B1, B0) + MoveLine(B7, B6, B5, B4) + MoveLine(B11, B10, B9, B8) + MoveLine(B15, B14, B13, B12);
                     break;
                 default:
                     break;
             }
 
-            tScore.Text = _score.ToString();
+            TScore.Text = _score.ToString();
             //int n = cubes.Count(isZero);
             int n = _tiles.Count(cube => { return cube.Value == 0; });//计算为0的方块数
 
@@ -188,23 +172,7 @@ namespace My2048
             Tile[] row = { t1, t2, t3, t4 };
             if (row.Count(t => t.Value == 0) == row.Length)//该行全为0直接返回
                 return 0;
-            //ArrayList iCubes = new ArrayList();
-            //for (int i = 0; i < cubes.Length; i++)
-            //    if (cubes[i].IValue != 0)
-            //    {
-            //        iCubes.Add(cubes[i].IValue);
-            //    }
-            //for (int i = 0; i < cubes.Length - iCubes.Count; i++)
-            //    cubes[i].IValue = 0;
-            //for (int i = 0; i < iCubes.Count; i++)
-            //    cubes[i + cubes.Length - iCubes.Count].IValue = (int)iCubes[i];
-
-            //选出非0的cube
-            //for (int i = 0; i < iCube.Length; i++)
-            //{
-            //    c[c.Length - 1 - i].Value = iCube[iCube.Length - 1 - i].Value;//将非0的cube放到队尾
-            //    //c[i].Value = iCube[iCube.Count()-1-i];
-            //}
+           
             ArrayList tilesNotZero = new ArrayList();//存放当前行非0块
             foreach (Tile tile in row)
             {
@@ -224,7 +192,6 @@ namespace My2048
                 {
                     row[row.Length - 1 - i].Value = 0;//其余补0
                 }
-                //c[i].Value = iCube[iCube.Count()-1-i];
             }
 
             if (row[2].Value != 0)//如果倒数第二个为0，说明该行只有一个数直接返回
@@ -238,7 +205,6 @@ namespace My2048
                     {
                         score += 2 * row[1].Value;
                         row[2].Value = 2 * row[1].Value;
-                        //if (c[1].Value > 0) canGetNext = true;//???
                         row[1].Value = 0;
                         row[0].Value = 0;
                     }
@@ -255,7 +221,6 @@ namespace My2048
                     {
                         score += 2 * row[2].Value;
                         row[2].Value = 2 * row[2].Value;
-                        //if (c[1].Value > 0) canGetNext = true;
                         row[1].Value = row[0].Value;
                         row[0].Value = 0;
                     }
@@ -265,7 +230,6 @@ namespace My2048
                         {
                             score += 2 * row[1].Value;
                             row[1].Value = 2 * row[1].Value;
-                            //if (c[0].Value > 0) canGetNext = true;
                             row[0].Value = 0;
                         }
                     }
@@ -312,15 +276,15 @@ namespace My2048
                     return true;
                 }
             }
-            if (b0.Value == b1.Value || b1.Value == b2.Value || b2.Value == b3.Value ||
-                b4.Value == b5.Value || b5.Value == b6.Value || b6.Value == b7.Value ||
-                b8.Value == b9.Value || b9.Value == b10.Value || b10.Value == b11.Value ||
-                b12.Value == b13.Value || b13.Value == b14.Value || b14.Value == b15.Value)
+            if (B0.Value == B1.Value || B1.Value == B2.Value || B2.Value == B3.Value ||
+                B4.Value == B5.Value || B5.Value == B6.Value || B6.Value == B7.Value ||
+                B8.Value == B9.Value || B9.Value == B10.Value || B10.Value == B11.Value ||
+                B12.Value == B13.Value || B13.Value == B14.Value || B14.Value == B15.Value)
                 return true;
-            if (b0.Value == b4.Value || b4.Value == b8.Value || b8.Value == b12.Value ||
-                b1.Value == b5.Value || b5.Value == b9.Value || b9.Value == b13.Value ||
-                b2.Value == b6.Value || b6.Value == b10.Value || b10.Value == b14.Value ||
-                b3.Value == b7.Value || b7.Value == b11.Value || b11.Value == b15.Value)
+            if (B0.Value == B4.Value || B4.Value == B8.Value || B8.Value == B12.Value ||
+                B1.Value == B5.Value || B5.Value == B9.Value || B9.Value == B13.Value ||
+                B2.Value == B6.Value || B6.Value == B10.Value || B10.Value == B14.Value ||
+                B3.Value == B7.Value || B7.Value == B11.Value || B11.Value == B15.Value)
                 return true;
             return false;
         }
@@ -472,7 +436,7 @@ namespace My2048
                     _tiles[i].Value = int.Parse(saves[i]);
                 }
                 _score = int.Parse(saves[16]);
-                tScore.Text = saves[16];
+                TScore.Text = saves[16];
             }
 
 
