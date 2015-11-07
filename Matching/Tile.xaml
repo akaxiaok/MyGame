@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Border x:Name="MainArea" Background="#FFCCC0B2" CornerRadius="10"  Width="65" Height="95"   VerticalAlignment="Center">
+             d:DesignHeight="300" d:DesignWidth="300" MouseDown="UserControl_MouseDown">
+    <Border x:Name="MainArea" Background="#FFCCC0B2" CornerRadius="10"  Width="65" Height="95"   VerticalAlignment="Center" MouseUp="MainArea_MouseUp">
         <Label Height="50" FontFamily="Old English Text MT" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <TextBlock x:Name="TxbNum"></TextBlock>
         </Label>
